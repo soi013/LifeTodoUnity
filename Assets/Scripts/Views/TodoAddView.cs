@@ -1,14 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
-using Zenject;
-using LifeTodo.Domain;
 using LifeTodo.UseCase;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
-namespace LifeTodo.Views
+namespace LifeTodo.UI
 {
     public class TodoAddView : MonoBehaviour
     {
@@ -19,8 +15,7 @@ namespace LifeTodo.Views
         private TMP_Text title;
 
         [Inject]
-        private   TodoAppService appService;
-        
+        private TodoAppService appService;
 
         private void Start()
         {

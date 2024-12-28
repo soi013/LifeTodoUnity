@@ -1,12 +1,12 @@
-using System;
 using LifeTodo.Domain;
 using LifeTodo.UseCase;
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace LifeTodo.Views
+namespace LifeTodo.UI
 {
     public class TodoCellView : MonoBehaviour
     {
@@ -34,7 +34,7 @@ namespace LifeTodo.Views
             this.index = indexList;
 
             UpdateTodoView();
-            
+
             button.onClick.AddListener(OnDone);
         }
 
@@ -48,6 +48,7 @@ namespace LifeTodo.Views
             Debug.Log($"{index}:\t{todo.Text}\t{statusText}");
             title.text = $" {index}:\t{todo.Text}";
             status.text = statusText;
+            button.gameObject.SetActive(todo.Status == TodoStatus.Active);
         }
 
         private void OnDone()
